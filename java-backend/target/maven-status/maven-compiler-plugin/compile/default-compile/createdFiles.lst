@@ -1,0 +1,14 @@
+com/oms/service/MlService.class
+com/oms/service/MessageService.class
+com/oms/OffensiveMessageDetectorApplication.class
+com/oms/model/Message.class
+com/oms/dto/MessageRequest.class
+com/oms/config/WebClientConfig.class
+com/oms/controller/MessageController.class
+com/oms/repository/MessageRepository.class
+com/oms/service/ReportService.class
+com/oms/controller/HealthController.class
+com/oms/model/Report.class
+com/oms/controller/ReportController.class
+com/oms/repository/ReportRepository.class
+com/oms/dto/MlAnalysisResult.class

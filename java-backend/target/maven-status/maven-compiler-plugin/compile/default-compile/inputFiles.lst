@@ -1,0 +1,14 @@
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/OffensiveMessageDetectorApplication.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/config/WebClientConfig.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/HealthController.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/MessageController.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/ReportController.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/dto/MessageRequest.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/dto/MlAnalysisResult.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/model/Message.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/model/Report.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/repository/MessageRepository.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/repository/ReportRepository.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/service/MessageService.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/service/MlService.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/service/ReportService.java
