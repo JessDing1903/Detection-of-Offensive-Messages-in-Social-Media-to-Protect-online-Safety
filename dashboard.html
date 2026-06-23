@@ -211,6 +211,216 @@
   @keyframes spin { to { transform: rotate(360deg); } }
 
   footer { text-align: center; color: #333; font-size: 0.78rem; padding: 24px; }
+
+  /* Chatbot styles */
+  #chatLauncher {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    z-index: 1000;
+    transition: transform .3s ease, background .3s;
+  }
+  #chatLauncher:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: #2563eb;
+  }
+  #chatLauncher.open {
+    transform: scale(0.9) rotate(-45deg);
+    background: #ef4444;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  }
+
+  #chatWindow {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 380px;
+    height: 520px;
+    background: rgba(26, 29, 39, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid #2a2d3e;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+  #chatWindow.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #chatHeader {
+    background: linear-gradient(135deg, #1e2233, #2a2d3e);
+    border-bottom: 1px solid #3b82f633;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #chatHeader h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    flex-grow: 1;
+  }
+  #chatHeader .bot-status {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+  }
+
+  #chatMessages {
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+  }
+
+  .chat-msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  .chat-msg.bot {
+    align-self: flex-start;
+    background: #252836;
+    border: 1px solid #2a2d3e;
+    color: #e0e0e0;
+    border-bottom-left-radius: 2px;
+  }
+  .chat-msg.user {
+    align-self: flex-end;
+    background: #3b82f6;
+    color: #fff;
+    border-bottom-right-radius: 2px;
+  }
+
+  .chat-msg p {
+    margin-bottom: 6px;
+  }
+  .chat-msg p:last-child {
+    margin-bottom: 0;
+  }
+  .chat-msg ul {
+    margin-left: 18px;
+    margin-bottom: 6px;
+  }
+  .chat-msg li {
+    margin-bottom: 4px;
+  }
+
+  #chatChips {
+    display: flex;
+    gap: 8px;
+    padding: 8px 16px;
+    overflow-x: auto;
+    border-top: 1px solid #1e2130;
+    white-space: nowrap;
+  }
+  #chatChips::-webkit-scrollbar {
+    height: 4px;
+  }
+  #chatChips::-webkit-scrollbar-thumb {
+    background: #2a2d3e;
+    border-radius: 4px;
+  }
+  .chip {
+    background: #1e2130;
+    border: 1px solid #2a2d3e;
+    color: #9ca3af;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .chip:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: #3b82f611;
+  }
+
+  #chatInputArea {
+    padding: 12px 16px;
+    background: #13151f;
+    border-top: 1px solid #2a2d3e;
+    display: flex;
+    gap: 8px;
+  }
+  #chatInput {
+    flex-grow: 1;
+    background: #0f1117;
+    border: 1px solid #2a2d3e;
+    border-radius: 8px;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #chatInput:focus {
+    border-color: #3b82f6;
+  }
+  #chatSendBtn {
+    background: #3b82f6;
+    border: none;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #chatSendBtn:hover {
+    background: #2563eb;
+  }
+
+  /* Typing animation */
+  .typing-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 12px;
+  }
+  .typing-dots span {
+    width: 6px;
+    height: 6px;
+    background: #888;
+    border-radius: 50%;
+    animation: bounce .6s infinite alternate;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { to { transform: translateY(-4px); opacity: 0.4; } }
 </style>
 </head>
 <body>
@@ -283,6 +493,33 @@
 </div>
 
 <div id="toast"></div>
+
+<!-- Chatbot Floating UI -->
+<div id="chatLauncher" onclick="toggleChat()">💬</div>
+<div id="chatWindow">
+  <div id="chatHeader">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <h3>AI System Assistant</h3>
+    <div class="bot-status" title="Active"></div>
+  </div>
+  <div id="chatMessages">
+    <div class="chat-msg bot">
+      <p>Hello! I am your AI assistant. I can help you check system stats, analyze custom messages, or answer questions about the system.</p>
+    </div>
+  </div>
+  <div id="chatChips">
+    <div class="chip" onclick="sendChip('Show stats')">📊 Show stats</div>
+    <div class="chip" onclick="sendChip('How it works')">⚙️ How it works</div>
+    <div class="chip" onclick="sendChip('What can you do?')">💡 What can you do?</div>
+  </div>
+  <div id="chatInputArea">
+    <input type="text" id="chatInput" placeholder="Ask a question or type 'analyze [msg]'..." onkeydown="handleChatKey(event)">
+    <button id="chatSendBtn" onclick="sendChatMsg()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
 <footer>Java API · Python ML · MongoDB &nbsp;|&nbsp; Offensive Message Detection System</footer>
 
 <script>
@@ -394,6 +631,142 @@ document.getElementById('msgText').addEventListener('keydown', e => {
 
 // Initial stats load
 loadStats();
+
+// Chatbot functionality
+function toggleChat() {
+  const win = document.getElementById('chatWindow');
+  const launcher = document.getElementById('chatLauncher');
+  const isOpen = win.classList.contains('visible');
+  
+  if (isOpen) {
+    win.classList.remove('visible');
+    launcher.classList.remove('open');
+    launcher.textContent = '💬';
+    setTimeout(() => { win.style.display = 'none'; }, 300);
+  } else {
+    win.style.display = 'flex';
+    setTimeout(() => {
+      win.classList.add('visible');
+      launcher.classList.add('open');
+      launcher.textContent = '✕';
+    }, 10);
+  }
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter') sendChatMsg();
+}
+
+function sendChip(text) {
+  document.getElementById('chatInput').value = text;
+  sendChatMsg();
+}
+
+function formatReply(text) {
+  let lines = text.split('\n');
+  let formatted = [];
+  let inList = false;
+  
+  for (let line of lines) {
+    let trimmed = line.trim();
+    if (trimmed.startsWith('• ')) {
+      if (!inList) {
+        formatted.push('<ul>');
+        inList = true;
+      }
+      let content = parseBoldItalic(trimmed.substring(2));
+      formatted.push(`<li>${content}</li>`);
+    } else {
+      if (inList) {
+        formatted.push('</ul>');
+        inList = false;
+      }
+      if (trimmed === '') {
+        formatted.push('<br>');
+      } else {
+        formatted.push(`<p>${parseBoldItalic(line)}</p>`);
+      }
+    }
+  }
+  if (inList) {
+    formatted.push('</ul>');
+  }
+  return formatted.join('');
+}
+
+function parseBoldItalic(text) {
+  let t = esc(text);
+  t = t.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  return t;
+}
+
+async function sendChatMsg() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  input.value = '';
+  
+  // Render user message
+  const msgs = document.getElementById('chatMessages');
+  const userBubble = document.createElement('div');
+  userBubble.className = 'chat-msg user';
+  userBubble.textContent = text;
+  msgs.appendChild(userBubble);
+  msgs.scrollTop = msgs.scrollHeight;
+  
+  // Render typing indicator
+  const typingBubble = document.createElement('div');
+  typingBubble.className = 'chat-msg bot';
+  typingBubble.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  msgs.appendChild(typingBubble);
+  msgs.scrollTop = msgs.scrollHeight;
+  
+  try {
+    const res = await fetch('http://localhost:8080/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    
+    // Remove typing indicator
+    if (msgs.contains(typingBubble)) {
+      msgs.removeChild(typingBubble);
+    }
+    
+    // Render response
+    const botBubble = document.createElement('div');
+    botBubble.className = 'chat-msg bot';
+    botBubble.innerHTML = formatReply(data.reply || '');
+    msgs.appendChild(botBubble);
+    
+    // Update chips if suggestions are present
+    const chipsDiv = document.getElementById('chatChips');
+    if (data.suggestions && data.suggestions.length) {
+      chipsDiv.innerHTML = data.suggestions.map(s => {
+        let icon = '💡';
+        if (s.toLowerCase().includes('stats')) icon = '📊';
+        else if (s.toLowerCase().includes('works')) icon = '⚙️';
+        return `<div class="chip" onclick="sendChip('${s}')">${icon} ${s}</div>`;
+      }).join('');
+    }
+    
+    msgs.scrollTop = msgs.scrollHeight;
+  } catch(e) {
+    if (msgs.contains(typingBubble)) {
+      msgs.removeChild(typingBubble);
+    }
+    const errBubble = document.createElement('div');
+    errBubble.className = 'chat-msg bot';
+    errBubble.style.borderColor = '#ef4444';
+    errBubble.style.color = '#fca5a5';
+    errBubble.textContent = 'Unable to reach the AI assistant service. Please check if the Java backend is running.';
+    msgs.appendChild(errBubble);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+}
 </script>
 </body>
 </html>

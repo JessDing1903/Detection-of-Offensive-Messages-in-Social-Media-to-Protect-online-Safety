@@ -1,5 +1,6 @@
 /home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/OffensiveMessageDetectorApplication.java
 /home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/config/WebClientConfig.java
+/home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/ChatController.java
 /home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/HealthController.java
 /home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/MessageController.java
 /home/foksia/offensive-message-detector/java-backend/src/main/java/com/oms/controller/ReportController.java

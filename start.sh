@@ -81,13 +81,13 @@ ML_PORT=5001 MONGO_URI=mongodb://localhost:27017/ \
 echo $! > /tmp/ml.pid
 
 # wait for it
-for i in $(seq 1 15); do
+for i in $(seq 1 40); do
     if curl -s http://localhost:5001/health | grep -q "ok"; then
         ok "ML service running  (port 5001)"
         break
     fi
     sleep 1
-    if [ $i -eq 15 ]; then
+    if [ $i -eq 40 ]; then
         echo "ML service log:"; cat /tmp/ml_service.log
         fail "ML service failed to start"
     fi

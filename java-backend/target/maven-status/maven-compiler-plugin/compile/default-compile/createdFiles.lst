@@ -4,6 +4,7 @@ com/oms/OffensiveMessageDetectorApplication.class
 com/oms/model/Message.class
 com/oms/dto/MessageRequest.class
 com/oms/config/WebClientConfig.class
+com/oms/controller/ChatController.class
 com/oms/controller/MessageController.class
 com/oms/repository/MessageRepository.class
 com/oms/service/ReportService.class
